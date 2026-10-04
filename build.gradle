@@ -15,9 +15,21 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     testImplementation("com.intuit.karate:karate-junit5:1.4.1")
-    implementation("com.intuit.karate:karate-core:1.4.1")
 }
 
 test {
     useJUnitPlatform()
+
+    ['karate.env', 'karate.options', 'karate.threads'].each { p ->
+        if (System.getProperty(p)) systemProperty p, System.getProperty(p)
+    }
+    systemProperty 'karate.env', System.getProperty('karate.env', 'qa')
+
+    outputs.upToDateWhen { false }
+
+    testLogging {
+        events 'passed', 'failed', 'skipped'
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
 }

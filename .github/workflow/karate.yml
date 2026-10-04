@@ -1,0 +1,92 @@
+name: CrudAPI Todo.ly - Karate
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'Tags de Karate (ej: @smoke, @regression, @smoke,@e2e)'
+        required: false
+        default: '@EndToEndTest'
+        type: string
+      env:
+        description: 'Ambiente (karate.env)'
+        required: false
+        default: 'qa'
+        type: choice
+        options: [ qa ]
+
+# Cancela ejecuciones viejas solo en PRs (en main no, para no cortar un deploy)
+concurrency:
+  group: karate-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  karate-api-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    permissions:
+      contents: write   # necesario para publicar en gh-pages
+
+    env:
+      USERNAME_TODOLY: ${{ secrets.USERNAME_TODOLY }}
+      PASSWORD_TODOLY: ${{ secrets.PASSWORD_TODOLY }}
+      # Los inputs se pasan por env (no interpolados en el script) para evitar inyección
+      KARATE_TAGS: ${{ github.event.inputs.tags || '@EndToEndTest' }}
+      KARATE_ENV: ${{ github.event.inputs.env || 'qa' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+
+      - name: Validate required secrets
+        run: |
+          if [ -z "$USERNAME_TODOLY" ] || [ -z "$PASSWORD_TODOLY" ]; then
+            echo "::error::Faltan los secrets USERNAME_TODOLY / PASSWORD_TODOLY"
+            exit 1
+          fi
+
+      # Sin continue-on-error: si hay tests fallidos, el job termina en rojo.
+      # Los pasos siguientes usan if: always() para publicar igualmente el reporte.
+      - name: Run Karate tests
+        run: |
+          ./gradlew clean test \
+            -Dkarate.options="--tags $KARATE_TAGS" \
+            -Dkarate.env="$KARATE_ENV" \
+            --console=plain
+
+      - name: Verify Karate report
+        if: always()
+        run: |
+          echo "Contenido de target/karate-reports:"
+          ls -la target/karate-reports/ || echo "La carpeta no existe"
+
+      - name: Prepare report for GitHub Pages
+        if: always() && github.ref == 'refs/heads/main'
+        run: |
+          mkdir -p public-report
+          cp -r target/karate-reports/* public-report/
+          cp public-report/karate-summary.html public-report/index.html
+
+      # Solo se publica desde main (los PRs no deben sobreescribir el reporte)
+      - name: Deploy Karate Report to GitHub Pages
+        if: always() && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: public-report

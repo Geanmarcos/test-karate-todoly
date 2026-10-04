@@ -1,9 +1,17 @@
 function config(){
 
-    // credenciales
+    var env = karate.env || 'qa';
+    karate.log('karate.env:', env);
 
-    var user = 'geanmarcos.tataje@gmail.com';
-    var password = 'TestingJB$.';
+    // credenciales
+    var user = java.lang.System.getenv('USERNAME_TODOLY');
+    var password = java.lang.System.getenv('PASSWORD_TODOLY');
+
+    // Validar que las variables no vengan vacías
+    if (!user || !password) {
+        karate.log('⚠️ Alerta: USERNAME_TODOLY o PASSWORD_TODOLY no están definidos');
+    }
+
 
     //convertir a base64
     var JString = Java.type('java.lang.String');
