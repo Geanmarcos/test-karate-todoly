@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="res/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="res/karate-report.css" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script type="text/javascript" src="res/jquery.min.js"></script>
+    <script type="text/javascript" src="res/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="res/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="res/bootstrap.min.js"></script>
+    <script type="text/javascript" src="res/karate-report.js"></script>
+    <script type="text/javascript" src="res/Resemble.js"></script>
+    <script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
+  api_host:'https://app.posthog.com',
+  persistence:'localStorage',
+  autocapture:false,
+  capture_pageview:false,
+  api_transport:'sendBeacon',
+  loaded: function(posthog) { 
+    posthog.capture("report_feature",{distinct_id:"7de524f4-2345-4c6c-85be-816a659b6ec8",karate_version:"1.4.1",karate_meta:null});
+  }
+});
+</script>
+
+    <title>resources.api.ProjectConfig</title>
+  </head>
+  <body>
+    <div id="root-container">
+      <div id="leftnav">
+        
+        <div>
+  <div class="nav-logo">
+    <a href="https://karatelabs.io">
+      <img src="karate-labs-logo-ring.svg" alt="Karate Labs"/>
+    </a>
+    <div class="nav-count">
+      <div id="nav-pass" class="bg-success">1</div>
+      <div id="nav-fail" class="bg-danger">0</div>
+    </div>
+  </div>
+  <div id="nav-env">
+    <div></div>
+  </div>
+  <div id="nav-type">
+    <div>Scenarios</div>
+  </div>
+  <div id="nav-date">
+    <div>2026-10-04 04:58:35 p. m.</div>
+  </div>
+</div>
+
+        <div class="nav-container">
+          <div class="nav-item passed">
+            <a href="#[4:83]"><span>[4:83]</span> <span>Actualizar un proyecto</span></a>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <div class="page-heading alert alert-primary">
+          <a href="karate-summary.html">Summary</a><span class="feature-label">|</span>
+          <a href="karate-tags.html">Tags</a><span class="feature-label">|</span>
+          <span class="feature-label">Feature:</span>
+          <span class="feature-path">resources/api/ProjectConfig.feature</span><span class="feature-label">|</span>
+          <span class="feature-name">ProjectConfig</span>
+          <span class="feature-description"></span>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[4:83]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[4:83]</span>
+                <span class="scenario-name">Actualizar un proyecto</span>
+                <span></span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>3209</span>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-container" id="[4:83]bg">
+              <div class="step-ref bg-step">&gt;&gt;</div>
+              <div class="step-cell passed">Background:</div>
+            </div>
+            <div class="time-cell passed"></div>
+          </div>
+          <div data-parent="[4:83]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.3">
+      <div class="step-ref bg-step">3</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>url baseUrl</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.3">16:58:32.133 Scenario name: Actualizar un proyecto, featureFileName: resources/api/ProjectConfig.feature, id 196988621, featureId 15742052, START &lt;&lt;UPPERCUT&gt;&gt;
+</div>   
+
+  
+
+</div>
+</div>
+          <div data-parent="[4:83]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.4">
+      <div class="step-ref bg-step">4</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure headers = { &#39;Content-type&#39;: &#39;application/json&#39;, &#39;Authorization&#39;: &#39;#(basicAuth)&#39; }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">15</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4:83]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.5">
+      <div class="step-ref bg-step">5</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def createProject = &#39;classpath:helpers/createProjectData.feature&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div data-parent="[4:83]bg"><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.6">
+      <div class="step-ref bg-step">6</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def deleteProject = &#39;classpath:helpers/deleteProjectData.feature&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  <div class="step-row">
+    <div class="step-container">
+      <div class="step-ref passed"></div>
+      
+      <div class="step-cell comment"># crear proyecto</div>
+    </div>
+    <div class="time-cell comment"></div>            
+  </div>
+
+  <div class="step-row">
+    <div class="step-container" id="0.85">
+      <div class="step-ref passed">85</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def content = &#39;Crear Proyecto&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.86">
+      <div class="step-ref passed">86</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def icon = 1</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.87">
+      <div class="step-ref passed">87</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def projectCreated = call read(createProject){ content: &#39;#(content)&#39;, icon: #(icon) }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1338</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  <div>
+        
+    <div class="step-row">
+      <div class="step-container" id="0.87.0.call">
+        <div class="step-ref passed">&gt;&gt;</div>
+        <div class="step-indent"></div>
+        <div class="step-cell passed">helpers.createProjectData</div>
+      </div>
+      <div class="time-cell passed">1328</div>
+    </div>
+    <div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.87.0.call">
+    <div class="step-container" id="0.87.0.call.0.7">
+      <div class="step-ref passed">7</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>url baseUrl</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.87.0.call.0.7">16:58:32.164 Scenario name: 196988621##Crear proyecto, featureFileName: helpers/createProjectData.feature, id 121991029, featureId 917396362, START &lt;&lt;UPPERCUT&gt;&gt;
+</div>   
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.87.0.call">
+    <div class="step-container" id="0.87.0.call.0.8">
+      <div class="step-ref passed">8</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure headers = { &#39;Content-type&#39;: &#39;application/json&#39;, &#39;Authorization&#39;: &#39;#(basicAuth)&#39; }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.87.0.call">
+    <div class="step-container" id="0.87.0.call.0.9">
+      <div class="step-ref passed">9</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def payload = read(&#39;classpath:data/payload.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">3</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.87.0.call">
+    <div class="step-container" id="0.87.0.call.0.10">
+      <div class="step-ref passed">10</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;/api/projects.json&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.87.0.call">
+    <div class="step-container" id="0.87.0.call.0.11">
+      <div class="step-ref passed">11</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>request payload</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.87.0.call">
+    <div class="step-container" id="0.87.0.call.0.12">
+      <div class="step-ref passed">12</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method post</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1316</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.87.0.call.0.12">16:58:32.308 request:
+1 &gt; POST https://todo.ly/api/projects.json
+1 &gt; Content-type: application/json; charset=UTF-8
+1 &gt; Authorization: Basic Z2Vhbm1hcmNvcy50YXRhamVAZ21haWwuY29tOlRlc3RpbmdKQiQu
+1 &gt; Content-Length: 37
+1 &gt; Host: todo.ly
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;Content&quot;:&quot;Crear Proyecto&quot;,&quot;Icon&quot;:1}
+
+16:58:33.483 response time in milliseconds: 1172
+1 &lt; 200
+1 &lt; Cache-Control: no-cache, no-store, must-revalidate
+1 &lt; Pragma: no-cache
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Expires: -1
+1 &lt; Server: Microsoft-IIS/10.0
+1 &lt; Set-Cookie: ASP.NET_SessionId=3yc0k2iyzmprguoz2zsrjs2e; path=/; HttpOnly; SameSite=Lax
+1 &lt; X-AspNetMvc-Version: 2.0
+1 &lt; X-AspNet-Version: 4.0.30319
+1 &lt; X-Powered-By: ASP.NET
+1 &lt; Date: Sun, 04 Oct 2026 21:58:39 GMT
+1 &lt; Content-Length: 404
+{&quot;Id&quot;:4556471,&quot;Content&quot;:&quot;Crear Proyecto&quot;,&quot;ItemsCount&quot;:0,&quot;Icon&quot;:1,&quot;ItemType&quot;:2,&quot;ParentId&quot;:null,&quot;Collapsed&quot;:false,&quot;ItemOrder&quot;:223,&quot;Children&quot;:[],&quot;IsProjectShared&quot;:false,&quot;ProjectShareOwnerName&quot;:null,&quot;ProjectShareOwnerEmail&quot;:null,&quot;IsShareApproved&quot;:false,&quot;IsOwnProject&quot;:true,&quot;LastSyncedDateTime&quot;:&quot;\/Date(1791151120315)\/&quot;,&quot;LastUpdatedDate&quot;:&quot;\/Date(1791151119953)\/&quot;,&quot;Deleted&quot;:false,&quot;SyncClientCreationId&quot;:null}
+
+</div>   
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.87.0.call">
+    <div class="step-container" id="0.87.0.call.0.13">
+      <div class="step-ref passed">13</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.87.0.call">
+    <div class="step-container" id="0.87.0.call.0.14">
+      <div class="step-ref passed">14</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>match response.ErrorCode == &#39;#notpresent&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">6</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.87.0.call">
+    <div class="step-container" id="0.87.0.call.0.15">
+      <div class="step-ref passed">15</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def project = response</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.87.0.call">
+    <div class="step-container" id="0.87.0.call.0.16">
+      <div class="step-ref passed">16</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def projectId = response.Id</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.87.0.call.0.16">16:58:33.492 Scenario name: 196988621##Crear proyecto, featureFileName: helpers/createProjectData.feature, id 121991029, featureId 917396362, FINISH &lt;&lt;UPPERCUT&gt;&gt;
+</div>   
+
+  
+
+</div>
+</div>
+    </div>    
+  </div>
+
+</div>
+</div>
+          <div><div>
+  
+
+  <div class="step-row">
+    <div class="step-container">
+      <div class="step-ref passed"></div>
+      
+      <div class="step-cell comment"># actualizar proyecto</div>
+    </div>
+    <div class="time-cell comment"></div>            
+  </div>
+
+  <div class="step-row">
+    <div class="step-container" id="0.89">
+      <div class="step-ref passed">89</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def content = &#39;Actualizar Proyecto&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.90">
+      <div class="step-ref passed">90</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>def icon = 2</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.91">
+      <div class="step-ref passed">91</div>
+      
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;/api/projects/&#39;+ projectCreated.projectId +&#39;.json&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.92">
+      <div class="step-ref passed">92</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>request read(&#39;classpath:data/payload.json&#39;)</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.93">
+      <div class="step-ref passed">93</div>
+      
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method put</span>
+      </div>
+    </div>
+    <div class="time-cell passed">940</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.93">16:58:33.496 request:
+1 &gt; PUT https://todo.ly/api/projects/4556471.json
+1 &gt; Content-type: application/json; charset=UTF-8
+1 &gt; Authorization: Basic Z2Vhbm1hcmNvcy50YXRhamVAZ21haWwuY29tOlRlc3RpbmdKQiQu
+1 &gt; Content-Length: 42
+1 &gt; Host: todo.ly
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12)
+1 &gt; Accept-Encoding: gzip,deflate
+{&quot;Content&quot;:&quot;Actualizar Proyecto&quot;,&quot;Icon&quot;:2}
+
+16:58:34.435 response time in milliseconds: 938
+1 &lt; 200
+1 &lt; Cache-Control: no-cache, no-store, must-revalidate
+1 &lt; Pragma: no-cache
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Expires: -1
+1 &lt; Server: Microsoft-IIS/10.0
+1 &lt; Set-Cookie: ASP.NET_SessionId=x03ufutzjgcg02hth4kieb4i; path=/; HttpOnly; SameSite=Lax
+1 &lt; X-AspNetMvc-Version: 2.0
+1 &lt; X-AspNet-Version: 4.0.30319
+1 &lt; X-Powered-By: ASP.NET
+1 &lt; Date: Sun, 04 Oct 2026 21:58:41 GMT
+1 &lt; Content-Length: 409
+{&quot;Id&quot;:4556471,&quot;Content&quot;:&quot;Actualizar Proyecto&quot;,&quot;ItemsCount&quot;:0,&quot;Icon&quot;:2,&quot;ItemType&quot;:2,&quot;ParentId&quot;:null,&quot;Collapsed&quot;:false,&quot;ItemOrder&quot;:223,&quot;Children&quot;:[],&quot;IsProjectShared&quot;:false,&quot;ProjectShareOwnerName&quot;:null,&quot;ProjectShareOwnerEmail&quot;:null,&quot;IsShareApproved&quot;:false,&quot;IsOwnProject&quot;:true,&quot;LastSyncedDateTime&quot;:&quot;\/Date(1791151121271)\/&quot;,&quot;LastUpdatedDate&quot;:&quot;\/Date(1791151120983)\/&quot;,&quot;Deleted&quot;:false,&quot;SyncClientCreationId&quot;:null}
+
+</div>   
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.94">
+      <div class="step-ref passed">94</div>
+      
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.95">
+      <div class="step-ref passed">95</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>match response contains { Content: &#39;#(content)&#39;, Icon: #(icon) }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.96">
+      <div class="step-ref passed">96</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>call read(deleteProject) { projectId: &#39;#(projectCreated.projectId)&#39; }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">911</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.96">16:58:35.347 Scenario name: Actualizar un proyecto, featureFileName: resources/api/ProjectConfig.feature, id 196988621, featureId 15742052, FINISH &lt;&lt;UPPERCUT&gt;&gt;
+</div>   
+
+  <div>
+        
+    <div class="step-row">
+      <div class="step-container" id="0.96.0.call">
+        <div class="step-ref passed">&gt;&gt;</div>
+        <div class="step-indent"></div>
+        <div class="step-cell passed">helpers.deleteProjectData</div>
+      </div>
+      <div class="time-cell passed">906</div>
+    </div>
+    <div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.96.0.call">
+    <div class="step-container" id="0.96.0.call.0.6">
+      <div class="step-ref passed">6</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>url baseUrl</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.96.0.call.0.6">16:58:34.440 Scenario name: 196988621##Eliminar proyecto, featureFileName: helpers/deleteProjectData.feature, id 1237386031, featureId 1116520464, START &lt;&lt;UPPERCUT&gt;&gt;
+</div>   
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.96.0.call">
+    <div class="step-container" id="0.96.0.call.0.7">
+      <div class="step-ref passed">7</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>configure headers = { &#39;Content-type&#39;: &#39;application/json&#39;, &#39;Authorization&#39;: &#39;#(basicAuth)&#39; }</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.96.0.call">
+    <div class="step-container" id="0.96.0.call.0.8">
+      <div class="step-ref passed">8</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>Given</span>&nbsp;<span>path &#39;/api/projects/&#39; + projectId + &#39;.json&#39;</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.96.0.call">
+    <div class="step-container" id="0.96.0.call.0.9">
+      <div class="step-ref passed">9</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>When</span>&nbsp;<span>method delete</span>
+      </div>
+    </div>
+    <div class="time-cell passed">905</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.96.0.call.0.9">16:58:34.443 request:
+1 &gt; DELETE https://todo.ly/api/projects/4556471.json
+1 &gt; Content-type: application/json
+1 &gt; Authorization: Basic Z2Vhbm1hcmNvcy50YXRhamVAZ21haWwuY29tOlRlc3RpbmdKQiQu
+1 &gt; Cookie: ASP.NET_SessionId=x03ufutzjgcg02hth4kieb4i
+1 &gt; Host: todo.ly
+1 &gt; Connection: Keep-Alive
+1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/21.0.12)
+1 &gt; Accept-Encoding: gzip,deflate
+
+
+16:58:35.345 response time in milliseconds: 901
+1 &lt; 200
+1 &lt; Cache-Control: no-cache, no-store, must-revalidate
+1 &lt; Pragma: no-cache
+1 &lt; Content-Type: application/json; charset=utf-8
+1 &lt; Expires: -1
+1 &lt; Server: Microsoft-IIS/10.0
+1 &lt; X-AspNetMvc-Version: 2.0
+1 &lt; X-AspNet-Version: 4.0.30319
+1 &lt; X-Powered-By: ASP.NET
+1 &lt; Date: Sun, 04 Oct 2026 21:58:41 GMT
+1 &lt; Content-Length: 408
+{&quot;Id&quot;:4556471,&quot;Content&quot;:&quot;Actualizar Proyecto&quot;,&quot;ItemsCount&quot;:0,&quot;Icon&quot;:2,&quot;ItemType&quot;:2,&quot;ParentId&quot;:null,&quot;Collapsed&quot;:false,&quot;ItemOrder&quot;:223,&quot;Children&quot;:[],&quot;IsProjectShared&quot;:false,&quot;ProjectShareOwnerName&quot;:null,&quot;ProjectShareOwnerEmail&quot;:null,&quot;IsShareApproved&quot;:false,&quot;IsOwnProject&quot;:true,&quot;LastSyncedDateTime&quot;:&quot;\/Date(1791151122182)\/&quot;,&quot;LastUpdatedDate&quot;:&quot;\/Date(1791151121967)\/&quot;,&quot;Deleted&quot;:true,&quot;SyncClientCreationId&quot;:null}
+
+</div>   
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.96.0.call">
+    <div class="step-container" id="0.96.0.call.0.10">
+      <div class="step-ref passed">10</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>Then</span>&nbsp;<span>status 200</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+     
+
+  
+
+</div>
+</div>
+      <div><div>
+  
+
+  
+
+  <div class="step-row" data-parent="0.96.0.call">
+    <div class="step-container" id="0.96.0.call.0.11">
+      <div class="step-ref passed">11</div>
+      <div class="step-indent"></div>
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>match response.Deleted == true</span>
+      </div>
+    </div>
+    <div class="time-cell passed">1</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.96.0.call.0.11">16:58:35.346 Scenario name: 196988621##Eliminar proyecto, featureFileName: helpers/deleteProjectData.feature, id 1237386031, featureId 1116520464, FINISH &lt;&lt;UPPERCUT&gt;&gt;
+</div>   
+
+  
+
+</div>
+</div>
+    </div>    
+  </div>
+
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

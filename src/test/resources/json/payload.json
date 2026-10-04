@@ -1,4 +1,4 @@
 {
-  "Content": "Karate",
-  "Icon": 7
+  "Content": "#(content)",
+  "Icon": "#(icon)"
 }

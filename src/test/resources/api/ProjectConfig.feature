@@ -68,3 +68,40 @@ Feature: ProjectConfig
     * match response contains { Content: '#(content)', Icon: #(icon) }
     * def projectId = response.Id
     * call read(deleteProject) { projectId: '#(projectId)' }
+
+  Scenario: Leer un proyecto
+    # crear proyecto
+    * def content = 'Read Proyecto'
+    * def icon = 5
+    * def projectCreated = call read(createProject){ content: '#(content)', icon: #(icon) }
+    Given path '/api/projects/'+ projectCreated.projectId +'.json'
+    When method get
+    Then status 200
+    * match response.Content == content
+    * call read(deleteProject) { projectId: '#(projectCreated.projectId)' }
+
+  Scenario: Actualizar un proyecto
+    # crear proyecto
+    * def content = 'Crear Proyecto'
+    * def icon = 1
+    * def projectCreated = call read(createProject){ content: '#(content)', icon: #(icon) }
+    # actualizar proyecto
+    * def content = 'Actualizar Proyecto'
+    * def icon = 2
+    Given path '/api/projects/'+ projectCreated.projectId +'.json'
+    * request read('classpath:data/payload.json')
+    When method put
+    Then status 200
+    * match response contains { Content: '#(content)', Icon: #(icon) }
+    * call read(deleteProject) { projectId: '#(projectCreated.projectId)' }
+
+  Scenario: Eliminar un proyecto
+    # crear proyecto
+    * def content = 'Crear Proyecto'
+    * def icon = 2
+    * def projectCreated = call read(createProject){ content: '#(content)', icon: #(icon) }
+    Given path '/api/projects/'+ projectCreated.projectId +'.json'
+    When method delete
+    Then status 200
+    * match response contains { Content: '#(content)', Icon: #(icon), Deleted: true }
+
