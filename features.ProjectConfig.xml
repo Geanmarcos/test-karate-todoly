@@ -1,40 +1,79 @@
-<testsuite failures="0" name="features/ProjectConfig.feature" skipped="0" tests="5" time="3.489316"><testcase classname="features.ProjectConfig" name="Create Project" time="1.590152"><system-out>* url baseUrl ............................................................. passed
+<testsuite failures="0" name="features/ProjectConfig.feature" skipped="0" tests="9" time="6.328553"><testcase classname="features.ProjectConfig" name="Create Project" time="3.117342"><system-out>* url baseUrl ............................................................. passed
 * configure headers = { 'Content-type': 'application/json', 'Authorization': '#(basicAuth)' } . passed
 * def createProject = 'classpath:helpers/createProjectData.feature' ....... passed
 * def deleteProject = 'classpath:helpers/deleteProjectData.feature' ....... passed
+* def createItem = 'classpath:helpers/createItemData.feature' ............. passed
+* def deleteItem = 'classpath:helpers/deleteItemData.feature' ............. passed
 Given path '/api/projects.json' ........................................... passed
+* def cContentProject = "Karate Project" .................................. passed
+* def cIconProject = 7 .................................................... passed
 * def payload = ........................................................... passed
 * request payload ......................................................... passed
 When method post .......................................................... passed
 Then status 200 ........................................................... passed
 * print response .......................................................... passed
-* match response.Content == 'Karate' ...................................... passed
+* match response contains { Content: '#(cContentProject)', Icon: #(cIconProject) } . passed
 * def PROJECT_ID = response.Id ............................................ passed
 * print "********** ID **********" ........................................ passed
 * print PROJECT_ID ........................................................ passed
 Given path '/api/projects/' + PROJECT_ID + '.json' ........................ passed
+* def uContentProject = "Update Karate Project" ........................... passed
+* def uIconProject = 7 .................................................... passed
 * def payload = ........................................................... passed
 * request payload ......................................................... passed
 When method put ........................................................... passed
 Then status 200 ........................................................... passed
-* match response.Content == 'KarateUpdated' ............................... passed
+* match response contains { Content: '#(uContentProject)', Icon: #(uIconProject) } . passed
 * print response .......................................................... passed
 Given path '/api/projects/' + PROJECT_ID + '.json' ........................ passed
 When method get ........................................................... passed
 Then status 200 ........................................................... passed
-* match response.Content == 'KarateUpdated' ............................... passed
+* match response contains { Content: '#(uContentProject)', Icon: #(uIconProject) } . passed
 * print response .......................................................... passed
-Given path '/api/projects/' + PROJECT_ID + '.json' ........................ passed
+Given path '/api/items.json' .............................................. passed
+* def cContentItem = "Create Item Karate" ................................. passed
+* def payload = ........................................................... passed
+* request payload ......................................................... passed
+When method post .......................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* match response contains { Content: '#(cContentItem)', ProjectId: #(PROJECT_ID) } . passed
+* def ITEM_ID = response.Id ............................................... passed
+* print "********** ID **********" ........................................ passed
+* print ITEM_ID ........................................................... passed
+Given path '/api/items/' +ITEM_ID+ '.json' ................................ passed
+* def uContentItem = "Update Item Karate" ................................. passed
+* def checked = true ...................................................... passed
+* def payload = ........................................................... passed
+* request payload ......................................................... passed
+When method put ........................................................... passed
+Then status 200 ........................................................... passed
+* print response .......................................................... passed
+* match response contains { Content: '#(uContentItem)', Checked: #(checked), ProjectId: #(PROJECT_ID) } . passed
+Given path '/api/items/' + ITEM_ID + '.json' .............................. passed
+When method get ........................................................... passed
+Then status 200 ........................................................... passed
+* match response contains { Content: '#(uContentItem)', Checked: #(checked), ProjectId: #(PROJECT_ID) } . passed
+* print response .......................................................... passed
+Given path '/api/items/' + ITEM_ID + '.json' .............................. passed
+* def deletedItem = true .................................................. passed
 When method delete ........................................................ passed
 Then status 200 ........................................................... passed
-* match response.Content == 'KarateUpdated' ............................... passed
-* match response.Deleted == true .......................................... passed
+* match response contains { Content: '#(uContentItem)', Checked: #(checked), ProjectId: #(PROJECT_ID), Deleted: #(deletedItem) } . passed
+* print response .......................................................... passed
+Given path '/api/projects/' + PROJECT_ID + '.json' ........................ passed
+* def deletedProject = true ............................................... passed
+When method delete ........................................................ passed
+Then status 200 ........................................................... passed
+* match response contains { Content: '#(uContentProject)', Icon: #(uIconProject), Deleted: #(deletedProject) } . passed
 * print response .......................................................... passed
 </system-out></testcase>
-<testcase classname="features.ProjectConfig" name="Crear un proyecto" time="0.397276"><system-out>* url baseUrl ............................................................. passed
+<testcase classname="features.ProjectConfig" name="Crear un proyecto" time="0.286462"><system-out>* url baseUrl ............................................................. passed
 * configure headers = { 'Content-type': 'application/json', 'Authorization': '#(basicAuth)' } . passed
 * def createProject = 'classpath:helpers/createProjectData.feature' ....... passed
 * def deleteProject = 'classpath:helpers/deleteProjectData.feature' ....... passed
+* def createItem = 'classpath:helpers/createItemData.feature' ............. passed
+* def deleteItem = 'classpath:helpers/deleteItemData.feature' ............. passed
 * def content = 'Create' .................................................. passed
 * def icon = 7 ............................................................ passed
 Given path '/api/projects.json' ........................................... passed
@@ -45,45 +84,135 @@ Then status 200 ........................................................... pass
 * def projectId = response.Id ............................................. passed
 * call read(deleteProject) { projectId: '#(projectId)' } .................. passed
 </system-out></testcase>
-<testcase classname="features.ProjectConfig" name="Leer un proyecto" time="0.588042"><system-out>* url baseUrl ............................................................. passed
+<testcase classname="features.ProjectConfig" name="Leer un proyecto" time="0.874313"><system-out>* url baseUrl ............................................................. passed
 * configure headers = { 'Content-type': 'application/json', 'Authorization': '#(basicAuth)' } . passed
 * def createProject = 'classpath:helpers/createProjectData.feature' ....... passed
 * def deleteProject = 'classpath:helpers/deleteProjectData.feature' ....... passed
+* def createItem = 'classpath:helpers/createItemData.feature' ............. passed
+* def deleteItem = 'classpath:helpers/deleteItemData.feature' ............. passed
 * def content = 'Read Proyecto' ........................................... passed
 * def icon = 5 ............................................................ passed
 * def projectCreated = call read(createProject){ content: '#(content)', icon: #(icon) } . passed
-Given path '/api/projects/'+ projectCreated.projectId +'.json' ............ passed
+Given path '/api/projects/' + projectCreated.projectId + '.json' .......... passed
 When method get ........................................................... passed
 Then status 200 ........................................................... passed
 * match response.Content == content ....................................... passed
 * call read(deleteProject) { projectId: '#(projectCreated.projectId)' } ... passed
 </system-out></testcase>
-<testcase classname="features.ProjectConfig" name="Actualizar un proyecto" time="0.554623"><system-out>* url baseUrl ............................................................. passed
+<testcase classname="features.ProjectConfig" name="Actualizar un proyecto" time="0.272402"><system-out>* url baseUrl ............................................................. passed
 * configure headers = { 'Content-type': 'application/json', 'Authorization': '#(basicAuth)' } . passed
 * def createProject = 'classpath:helpers/createProjectData.feature' ....... passed
 * def deleteProject = 'classpath:helpers/deleteProjectData.feature' ....... passed
-* def content = 'Crear Proyecto' .......................................... passed
-* def icon = 1 ............................................................ passed
-* def projectCreated = call read(createProject){ content: '#(content)', icon: #(icon) } . passed
+* def createItem = 'classpath:helpers/createItemData.feature' ............. passed
+* def deleteItem = 'classpath:helpers/deleteItemData.feature' ............. passed
+* def cContentProject = 'Crear Proyecto' .................................. passed
+* def cIconProject = 1 .................................................... passed
+* def projectCreated = call read(createProject){ content: '#(cContentProject)', icon: #(cIconProject) } . passed
+* def projectId = projectCreated.projectId ................................ passed
 * def content = 'Actualizar Proyecto' ..................................... passed
 * def icon = 2 ............................................................ passed
-Given path '/api/projects/'+ projectCreated.projectId +'.json' ............ passed
+Given path '/api/projects/' + projectCreated.projectId + '.json' .......... passed
 * request read('classpath:data/payload.json') ............................. passed
 When method put ........................................................... passed
 Then status 200 ........................................................... passed
 * match response contains { Content: '#(content)', Icon: #(icon) } ........ passed
-* call read(deleteProject) { projectId: '#(projectCreated.projectId)' } ... passed
+* call read(deleteProject) { projectId: '#(projectId)' } .................. passed
 </system-out></testcase>
-<testcase classname="features.ProjectConfig" name="Eliminar un proyecto" time="0.359224"><system-out>* url baseUrl ............................................................. passed
+<testcase classname="features.ProjectConfig" name="Eliminar un proyecto" time="0.188583"><system-out>* url baseUrl ............................................................. passed
 * configure headers = { 'Content-type': 'application/json', 'Authorization': '#(basicAuth)' } . passed
 * def createProject = 'classpath:helpers/createProjectData.feature' ....... passed
 * def deleteProject = 'classpath:helpers/deleteProjectData.feature' ....... passed
+* def createItem = 'classpath:helpers/createItemData.feature' ............. passed
+* def deleteItem = 'classpath:helpers/deleteItemData.feature' ............. passed
 * def content = 'Crear Proyecto' .......................................... passed
 * def icon = 2 ............................................................ passed
 * def projectCreated = call read(createProject){ content: '#(content)', icon: #(icon) } . passed
-Given path '/api/projects/'+ projectCreated.projectId +'.json' ............ passed
+Given path '/api/projects/' + projectCreated.projectId + '.json' .......... passed
 When method delete ........................................................ passed
 Then status 200 ........................................................... passed
 * match response contains { Content: '#(content)', Icon: #(icon), Deleted: true } . passed
+</system-out></testcase>
+<testcase classname="features.ProjectConfig" name="Crear Item de proyecto" time="0.347571"><system-out>* url baseUrl ............................................................. passed
+* configure headers = { 'Content-type': 'application/json', 'Authorization': '#(basicAuth)' } . passed
+* def createProject = 'classpath:helpers/createProjectData.feature' ....... passed
+* def deleteProject = 'classpath:helpers/deleteProjectData.feature' ....... passed
+* def createItem = 'classpath:helpers/createItemData.feature' ............. passed
+* def deleteItem = 'classpath:helpers/deleteItemData.feature' ............. passed
+* def cContentProject = 'Create Project Test' ............................. passed
+* def cIconProject = 3 .................................................... passed
+* def projectCreated = call read(createProject){ content: '#(cContentProject)', icon: #(cIconProject) } . passed
+* def content = 'Create Item Test' ........................................ passed
+* def projectId = projectCreated.projectId ................................ passed
+Given path '/api/items.json' .............................................. passed
+* request read('classpath:data/payloadItem.json') ......................... passed
+When method post .......................................................... passed
+Then status 200 ........................................................... passed
+* match response contains { Content: '#(content)', ProjectId: #(projectId) } . passed
+* def itemId = response.Id ................................................ passed
+* call read(deleteItem) { itemId: '#(itemId)' } ........................... passed
+* call read(deleteProject) { projectId: '#(projectId)' } .................. passed
+</system-out></testcase>
+<testcase classname="features.ProjectConfig" name="Leer item de proyecto" time="0.443679"><system-out>* url baseUrl ............................................................. passed
+* configure headers = { 'Content-type': 'application/json', 'Authorization': '#(basicAuth)' } . passed
+* def createProject = 'classpath:helpers/createProjectData.feature' ....... passed
+* def deleteProject = 'classpath:helpers/deleteProjectData.feature' ....... passed
+* def createItem = 'classpath:helpers/createItemData.feature' ............. passed
+* def deleteItem = 'classpath:helpers/deleteItemData.feature' ............. passed
+* def cContentProject = 'Create Project Test' ............................. passed
+* def cIconProject = 4 .................................................... passed
+* def projectCreated = call read(createProject){ content: '#(cContentProject)', icon: #(cIconProject) } . passed
+* def content = 'Create Item Test' ........................................ passed
+* def projectId = projectCreated.projectId ................................ passed
+* def itemCreated = call read(createItem) { content: '#(content)', projectId: #(projectId) } . passed
+* def itemId = itemCreated.itemId ......................................... passed
+Given path '/api/items/' + itemId + '.json' ............................... passed
+When method get ........................................................... passed
+Then status 200 ........................................................... passed
+* match response contains { Content: '#(content)', ProjectId: #(projectId) } . passed
+* call read(deleteItem) { itemId: '#(itemId)' } ........................... passed
+* call read(deleteProject) { projectId: '#(projectId)' } .................. passed
+</system-out></testcase>
+<testcase classname="features.ProjectConfig" name="Actualizar item de proyecto" time="0.452065"><system-out>* url baseUrl ............................................................. passed
+* configure headers = { 'Content-type': 'application/json', 'Authorization': '#(basicAuth)' } . passed
+* def createProject = 'classpath:helpers/createProjectData.feature' ....... passed
+* def deleteProject = 'classpath:helpers/deleteProjectData.feature' ....... passed
+* def createItem = 'classpath:helpers/createItemData.feature' ............. passed
+* def deleteItem = 'classpath:helpers/deleteItemData.feature' ............. passed
+* def cContentProject = 'Create Project Test' ............................. passed
+* def cIconProject = 4 .................................................... passed
+* def projectCreated = call read(createProject){ content: '#(cContentProject)', icon: #(cIconProject) } . passed
+* def cContentItem = 'Create Item Test' ................................... passed
+* def projectId = projectCreated.projectId ................................ passed
+* def itemCreated = call read(createItem) { content: '#(cContentItem)', projectId: #(projectId) } . passed
+* def itemId = itemCreated.itemId ......................................... passed
+* def content = 'Update Item Test' ........................................ passed
+Given path '/api/items/' + itemId + '.json' ............................... passed
+* request read('classpath:data/payloadItem.json') ......................... passed
+When method put ........................................................... passed
+Then status 200 ........................................................... passed
+* match response contains { Content: '#(content)', ProjectId: #(projectId) } . passed
+* call read(deleteItem) { itemId: '#(itemId)' } ........................... passed
+* call read(deleteProject) { projectId: '#(projectId)' } .................. passed
+</system-out></testcase>
+<testcase classname="features.ProjectConfig" name="Eliminar item de proyecto" time="0.346135"><system-out>* url baseUrl ............................................................. passed
+* configure headers = { 'Content-type': 'application/json', 'Authorization': '#(basicAuth)' } . passed
+* def createProject = 'classpath:helpers/createProjectData.feature' ....... passed
+* def deleteProject = 'classpath:helpers/deleteProjectData.feature' ....... passed
+* def createItem = 'classpath:helpers/createItemData.feature' ............. passed
+* def deleteItem = 'classpath:helpers/deleteItemData.feature' ............. passed
+* def cContentProject = 'Create Project Test' ............................. passed
+* def cIconProject = 4 .................................................... passed
+* def projectCreated = call read(createProject){ content: '#(cContentProject)', icon: #(cIconProject) } . passed
+* def cContentItem = 'Create Item Test' ................................... passed
+* def projectId = projectCreated.projectId ................................ passed
+* def itemCreated = call read(createItem) { content: '#(cContentItem)', projectId: #(projectId) } . passed
+* def itemId = itemCreated.itemId ......................................... passed
+* def deleted = true ...................................................... passed
+Given path '/api/items/' + itemId + '.json' ............................... passed
+* request read('classpath:data/payloadItem.json') ......................... passed
+When method delete ........................................................ passed
+Then status 200 ........................................................... passed
+* match response contains { Content: '#(cContentItem)', ProjectId: #(projectId), Deleted: #(deleted) } . passed
+* call read(deleteProject) { projectId: '#(projectId)' } .................. passed
 </system-out></testcase>
 </testsuite>
